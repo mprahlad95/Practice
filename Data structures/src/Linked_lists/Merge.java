@@ -11,6 +11,7 @@ package Linked_lists;
  */
 public class Merge {
     static Node head;
+    static Node firstnew;
     
     public static class Node {
         int data;
@@ -21,7 +22,8 @@ public class Merge {
         }
         
         Node() {
-            
+          next = null;
+          data = 0;
         }
     }
     
@@ -36,7 +38,6 @@ public class Merge {
                 last = last.next;
             }
             last.next = new_node;
-            System.out.println(last.next);
         }
         return last;
     }
@@ -44,23 +45,24 @@ public class Merge {
     public void traverse(Node start) {
         Node last = start;
         while (last != null) {
-            //System.out.print("random crap");
             System.out.print(last.data + " ");
             last = last.next;
         }
+        System.out.println();
     }
     
     public Node sortit(Node list1, Node list2) {
         Node finalList = new Node();
-        while (list1 != null || list2 != null) {
-              System.out.print(list1.data + " ");
-              System.out.print(list2.data + " ");
+        firstnew = finalList;
+        while (list1 != null && list2 != null) {
             if (list1.data < list2.data) {
                 finalList.data = list1.data;
+                finalList.next = list1;
                 list1 = list1.next;
             }
             else {
                 finalList.data = list2.data;
+                finalList.next = list2;
                 list2 = list2.next;
             }
             finalList = finalList.next;
@@ -70,19 +72,19 @@ public class Merge {
     
     public static void main(String[] args) {
         Merge LL1 = new Merge();
-        Node head1, head2;
+        Node head1, head2, first1, first2;
         head1 = head2 = null;
         head1 = LL1.push(head1, 3);
+        first1 = head1;
         head1 = LL1.push(head1, 5);
         head1 = LL1.push(head1, 8);
         head1 = LL1.push(head1, 15);
         head2 = LL1.push(head2, 1);
+        first2 = head2;
         head2 = LL1.push(head2, 9);
         head2 = LL1.push(head2, 10);
         head2 = LL1.push(head2, 16);
-//      Merge sortobj = new Merge();
-//      Node sorted_node = sortobj.sortit(head1, head2);
-        LL1.traverse(head1);
-        LL1.traverse(head2);
+        Node sorted_node = LL1.sortit(first1, first2);
+        LL1.traverse(firstnew);
     }
 }
