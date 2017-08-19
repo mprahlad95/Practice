@@ -51,7 +51,7 @@ public class Merge {
         System.out.println();
     }
     
-    public Node sortit(Node list1, Node list2) {
+    public void sortit(Node list1, Node list2) {
         Node finalList = new Node();
         firstnew = finalList;
         while (list1 != null && list2 != null) {
@@ -59,16 +59,17 @@ public class Merge {
                 finalList.data = list1.data;
                 finalList.next = list1;
                 list1 = list1.next;
-            }
-            else {
+            } else if (list2.data < list1.data) {
                 finalList.data = list2.data;
                 finalList.next = list2;
                 list2 = list2.next;
             }
             finalList = finalList.next;
+            if (list1 == null) finalList.data = list2.data;
+             else finalList.data = list1.data;
         }
-        return finalList;
     }
+
     
     public static void main(String[] args) {
         Merge LL1 = new Merge();
@@ -79,12 +80,16 @@ public class Merge {
         head1 = LL1.push(head1, 5);
         head1 = LL1.push(head1, 8);
         head1 = LL1.push(head1, 15);
+        head1 = LL1.push(head1, 19);
         head2 = LL1.push(head2, 1);
         first2 = head2;
         head2 = LL1.push(head2, 9);
         head2 = LL1.push(head2, 10);
         head2 = LL1.push(head2, 16);
-        Node sorted_node = LL1.sortit(first1, first2);
+        head2 = LL1.push(head2, 17);
+//        LL1.traverse(first1);
+//        LL1.traverse(first2);
+        LL1.sortit(first1, first2);
         LL1.traverse(firstnew);
     }
 }
