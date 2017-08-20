@@ -58,7 +58,7 @@ public class SortedInsertIntoSortedList {
      
     public static void main (String[] args) {
         SortedInsertIntoSortedList ll = new SortedInsertIntoSortedList();
-        Node new_node = new Node(9);
+        Node new_node = new Node(16);
         ll.insert_end(2);
         ll.insert_end(5);
         ll.insert_end(7);

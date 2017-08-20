@@ -85,6 +85,6 @@ public class Template {
             }
             last.next = new_node;
         }
-        return last;
+        return head;
     }
 }
