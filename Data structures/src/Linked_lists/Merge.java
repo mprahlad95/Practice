@@ -87,8 +87,6 @@ public class Merge {
         head2 = LL1.push(head2, 10);
         head2 = LL1.push(head2, 16);
         head2 = LL1.push(head2, 17);
-//        LL1.traverse(first1);
-//        LL1.traverse(first2);
         LL1.sortit(first1, first2);
         LL1.traverse(firstnew);
     }

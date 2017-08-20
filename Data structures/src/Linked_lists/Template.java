@@ -11,16 +11,23 @@ package Linked_lists;
  */
 public class Template {
     
-    static Node head, first;
+    static Node head, first, curr;
       
     static class Node {
         int data;
         Node next;
+        Boolean visited;
         Node(int d) {
             data = d;
             next = null;
+            visited = false;
+        }
+        Node() {
+            next = null;
+            data = 0;
         }
     }
+    
     
     public void insert_end(int d) {
             Node new_node = new Node(d);
@@ -57,7 +64,7 @@ public class Template {
         return node;
     }
     
-  public void traverse(Node start) {
+  public static void traverse(Node start) {
         Node last = start;
         while (last != null) {
             System.out.print(last.data + " ");

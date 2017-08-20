@@ -47,13 +47,13 @@ public class Menu_driven {
     }
     
     public void delete(int value) {
-        Node b = head;
+        Node last = head;
         Node prev = null;
-        while (b.next != null) {
-            prev = b;
-            b = b.next;
-            if (b.data == value) {
-            prev.next = b.next;
+        while (last.next != null) {
+            prev = last;
+            last = last.next;
+            if (last.data == value) {
+            prev.next = last.next;
             return;
             }
         }
