@@ -9,31 +9,31 @@ package Linked_lists;
  *
  * @author Prahlad Misra <mprahlad95@gmail.com>
  */
-public class pairwise_swap extends Template {
+public class move_LtoF extends Template {
     
-    public Node swap_pair(Node head) {
-        Node temp, curr;
-        curr = head;
-        temp = new Node();
-        while(curr != null && curr.next != null) {
-            temp.data = curr.data;
-            curr.data = curr.next.data;
-            curr.next.data = temp.data;
-            curr = curr.next.next;
+    public Node move(Node head) {
+        Node curr = head;
+        Node prev = new Node();
+        while(curr.next != null) {
+            prev = curr;
+            curr = curr.next;
         }
+        Node newdata = new Node(curr.data);
+        prev.next = null;
+        newdata.next = head;
+        head = newdata;
         return head;
     }
     
     public static void main(String[] args) {
-        pairwise_swap LL = new pairwise_swap();
+        move_LtoF LL = new move_LtoF();
         LL.insert_end(1);
         LL.insert_end(2);
         LL.insert_end(3);
         LL.insert_end(4);
         LL.insert_end(5);
         LL.insert_end(6);
-        Node swapped = LL.swap_pair(head);
-        LL.traverse(swapped);
+        Node moved = LL.move(head);
+        LL.traverse(moved);
     }
-    
 }
