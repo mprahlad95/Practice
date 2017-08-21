@@ -20,9 +20,9 @@ public class reverse_group extends Template {
         while (current != null && count < key) {
             temp = current.next;
             current.next = prev;
-            if (count == 1) 
-                prev_obj = prev;
             prev = current;
+            if (count == 0) 
+                prev_obj = prev;
             current = temp;
             count++;
         }
