@@ -9,30 +9,29 @@ package Linked_lists;
  *
  * @author Prahlad Misra <mprahlad95@gmail.com>
  */
-public class move_LtoF extends Template {
+public class del_alternatenodes extends Template {
     
-    public Node move(Node head) {
-        Node curr = head;
-        Node prev = new Node();
-        while(curr.next != null) {
-            prev = curr;
-            curr = curr.next;
+    public Node delalt(Node head) {
+        Node current = head;
+        while (current.next != null && current.next.next != null) {
+            current.next = current.next.next;
+            current = current.next;
         }
-        prev.next = null;
-        curr.next = head;
-        head = curr;
         return head;
     }
     
+        
     public static void main(String[] args) {
-        move_LtoF LL = new move_LtoF();
+        del_alternatenodes LL = new del_alternatenodes();
         LL.insert_end(1);
         LL.insert_end(2);
         LL.insert_end(3);
         LL.insert_end(4);
         LL.insert_end(5);
         LL.insert_end(6);
-        Node moved = LL.move(head);
-        LL.traverse(moved);
+        LL.insert_end(7);
+        Node removed = LL.delalt(head);
+        LL.traverse(removed);
+        
     }
 }

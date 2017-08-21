@@ -38,7 +38,6 @@ public class Menu_driven {
                 head = new_node;
             }
             else {
-                new_node.next = null;
                 Node last = head;
                 while (last.next != null)
                     last = last.next;
@@ -46,7 +45,7 @@ public class Menu_driven {
             }
     }
     
-    public void delete(int value) {
+    public Node delete(int value) {
         Node last = head;
         Node prev = null;
         while (last.next != null) {
@@ -54,9 +53,10 @@ public class Menu_driven {
             last = last.next;
             if (last.data == value) {
             prev.next = last.next;
-            return;
+            return head;
             }
         }
+        return head;
     }
     
     public static Node reverse(Node node) {

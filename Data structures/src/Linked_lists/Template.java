@@ -24,24 +24,23 @@ public class Template {
         }
         Node() {
             next = null;
-            data = 0;
         }
     }
     
     
-    public void insert_end(int d) {
+    public Node insert_end(int d) {
             Node new_node = new Node(d);
             if (head == null) {
                 head = new_node;
                 first = head;
             }
             else {
-                new_node.next = null;
                 Node last = head;
                 while (last.next != null)
                     last = last.next;
                     last.next = new_node;
             }
+            return head;
     }
     
     public void insert_front(int d) {
@@ -67,7 +66,7 @@ public class Template {
   public static void traverse(Node start) {
         Node last = start;
         while (last != null) {
-            System.out.print(last.data + " ");
+            System.out.print(" -> " + last.data);
             last = last.next;
         }
         System.out.println();
@@ -84,6 +83,20 @@ public class Template {
                 last = last.next;
             }
             last.next = new_node;
+        }
+        return head;
+    }
+        
+        public Node delete(int value) {
+        Node last = head;
+        Node prev = null;
+        while (last.next != null) {
+            prev = last;
+            last = last.next;
+            if (last.data == value) {
+            prev.next = last.next;
+            return head;
+            }
         }
         return head;
     }
