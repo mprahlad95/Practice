@@ -10,45 +10,46 @@ package Linked_lists;
  * @author Prahlad Misra <mprahlad95@gmail.com>
  */
 public class Template {
-    
-    static Node head, first, curr;
-      
+
+    static Node head;
+
     static class Node {
+
         int data;
         Node next;
         Boolean visited;
+
         Node(int d) {
             data = d;
             next = null;
             visited = false;
         }
+
         Node() {
             next = null;
         }
     }
-    
-    
+
     public Node insert_end(int d) {
-            Node new_node = new Node(d);
-            if (head == null) {
-                head = new_node;
-                first = head;
+        Node new_node = new Node(d);
+        if (head == null) {
+            head = new_node;
+        } else {
+            Node last = head;
+            while (last.next != null) {
+                last = last.next;
             }
-            else {
-                Node last = head;
-                while (last.next != null)
-                    last = last.next;
-                    last.next = new_node;
-            }
-            return head;
+            last.next = new_node;
+        }
+        return head;
     }
-    
+
     public void insert_front(int d) {
-       Node new_node = new Node(d);
-       new_node.next = head;
-       head = new_node;
+        Node new_node = new Node(d);
+        new_node.next = head;
+        head = new_node;
     }
-    
+
     public static Node reverse(Node node) {
         Node prev = null;
         Node current = node;
@@ -62,8 +63,8 @@ public class Template {
         node = prev;
         return node;
     }
-    
-  public static void traverse(Node start) {
+
+    public static void traverse(Node start) {
         Node last = start;
         while (last != null) {
             System.out.print(" -> " + last.data);
@@ -71,14 +72,14 @@ public class Template {
         }
         System.out.println();
     }
-    
-        public Node push(Node head, int d) {
+
+    public Node push(Node head, int d) {
         Node new_node = new Node(d);
         Node last = head;
         if (head == null) {
             head = new_node;
-            last = head;
         } else {
+            last = head;
             while (last.next != null) {
                 last = last.next;
             }
@@ -86,16 +87,23 @@ public class Template {
         }
         return head;
     }
-        
-        public Node delete(int value) {
+
+    public Node push_front(Node head, int d) {
+        Node new_node = new Node(d);
+        new_node.next = head;
+        head = new_node;
+        return head;
+    }
+
+    public Node delete(int value) {
         Node last = head;
         Node prev = null;
         while (last.next != null) {
             prev = last;
             last = last.next;
             if (last.data == value) {
-            prev.next = last.next;
-            return head;
+                prev.next = last.next;
+                return head;
             }
         }
         return head;
