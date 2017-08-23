@@ -9,7 +9,7 @@ package Stacks;
  *
  * @author Prahlad Misra <mprahlad95@gmail.com>
  */
-public class test_implementation extends Stack {
+public class test_implementation extends Stack_int {
     
     public static void main(String[] args) {
         test_implementation s = new test_implementation();
@@ -21,6 +21,7 @@ public class test_implementation extends Stack {
         s.push(2);
         s.push(8);
         System.out.println("Peeking at " + s.peek());
+        s.printstack();
         while (top >= 0) {
             System.out.println("Popping " + s.a[top--]);
         }

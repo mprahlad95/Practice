@@ -9,13 +9,13 @@ package Stacks;
  *
  * @author Prahlad Misra <mprahlad95@gmail.com>
  */
-public class Stack {
+public class Stack_char {
 
     static int max = 1000;
-    int a[] = new int[max];
+    char a[] = new char[max];
     static int top;
 
-    Stack() {
+    Stack_char() {
         top = -1;
     }
 
@@ -23,7 +23,7 @@ public class Stack {
         return (top < 0);
     }
 
-    public void push(int data) {
+    public void push(char data) {
         if (top >= max-1) {
             System.out.println("Stack overflow");
             return;
@@ -31,7 +31,7 @@ public class Stack {
         a[++top] = data;
     }
 
-    public int pop() {
+    public char pop() {
         if (top < 0) {
             System.out.println("Empty stack");
             return 0;
@@ -45,5 +45,13 @@ public class Stack {
             return 0;
         }
         return a[top];
+    }
+    
+    public void printstack() {
+        int i = top;
+        while (i > -1) {
+            System.out.println(a[i--] + " ");
+        }
+        System.out.println();
     }
 }
