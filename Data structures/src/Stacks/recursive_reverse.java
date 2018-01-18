@@ -15,8 +15,10 @@ public class recursive_reverse extends Stack_int {
         int z = 0;
         if (top >= 0) {
             z = peek();
+            
             pop();
             reverse();
+           // System.out.println(z);
             push_bottom(z);
         }         
     }
@@ -24,6 +26,7 @@ public class recursive_reverse extends Stack_int {
     public void push_bottom(int x) {
         int y = 0;
         if (isEmpty()) {
+            System.out.println(x);
             push(x);
         }
         else {

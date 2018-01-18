@@ -29,6 +29,7 @@ public class Stack_int {
             return;
         }
         a[++top] = data;
+        System.out.println("Pushed " + data + " into stack");
     }
 
     public int pop() {
@@ -50,8 +51,7 @@ public class Stack_int {
     public void printstack() {
         int i = top;
         while (i > -1) {
-            System.out.print(a[i--] + " ");
+            System.out.println(a[i--]);
         }
-        System.out.println();
     }
 }

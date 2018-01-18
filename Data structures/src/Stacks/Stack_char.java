@@ -18,7 +18,7 @@ public class Stack_char {
     Stack_char() {
         top = -1;
     }
-
+    
     public boolean isEmpty() {
         return (top < 0);
     }
@@ -50,8 +50,7 @@ public class Stack_char {
     public void printstack() {
         int i = top;
         while (i > -1) {
-            System.out.println(a[i--] + " ");
+            System.out.println(a[i--]);
         }
-        System.out.println();
     }
 }
